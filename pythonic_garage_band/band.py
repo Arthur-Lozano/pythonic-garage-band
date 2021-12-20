@@ -11,10 +11,11 @@ class Band:
 
 
 class Musician:
-    def __init__(self, name, type, instrument):
+    def __init__(self, name, type, instrument, members):
         self.name = name
         self.type = type
         self.instrument = instrument
+        self.members = members
 
     def __str__(self):
         return f"My name is {self.name} and I play {self.instrument}"
@@ -27,6 +28,9 @@ class Guitarist(Musician):
     def _init_(self, name):
         super().__init__(name, type="Guitarist", instrument="guitar")
 
+    def __str__(self):
+        return f"My name is {self.name} and I play {self.instrument}"
+
     def play_solo():
         pass
 
@@ -34,17 +38,23 @@ class Guitarist(Musician):
         return f"My instrument is {self.type}"
 
 
-class Bassist:
+class Bassist(Musician):
+    def _init_(self, name):
+        super().__init__(name, type="Bassist", instrument="bass")
+
     def __str__(self):
-        return f"The band {self.name}"
+        return f"My name is {self.name} and I play {self.instrument}"
 
     def __repr__(self):
         return f"Band instance. name={self.name}, members={self.members}"
 
 
-class Drummer:
+class Drummer(Musician):
+    def _init_(self, name):
+        super().__init__(name, type="Drummer", instrument="drums")
+
     def __str__(self):
-        return f"The band {self.name}"
+        return f"My name is {self.name} and I play {self.instrument}"
 
     def __repr__(self):
         return f"Band instance. name={self.name}, members={self.members}"
